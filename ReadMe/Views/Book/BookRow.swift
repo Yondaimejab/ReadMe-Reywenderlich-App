@@ -9,36 +9,37 @@ import SwiftUI
 
 extension Book {
     struct Row: View {
-        let book: Book
+        @EnvironmentObject var library: Library
+        @ObservedObject var book: Book
         
         var body: some View {
-            HStack {
-                Book.Image(title: Book().title)
-                VStack(alignment: .leading, spacing: 5) {
-                    Text(book.title)
-                        .font(.title2)
-                    Text(book.author)
-                        .font(.title3)
-                        .foregroundColor(.secondary)
-                }
+            NavigationLink(destination: BookDetailsView(book: book, image: library.images[book])) {
+                HStack {
+                    Book.Image(
+                        image: library.images[book], title: book.title,
+                        width: 80.0, height: 80.0, cornerRadius: 12.0
+                    )
+                    VStack(alignment: .leading) {
+                        TitleAndAuthorView(
+                            book: book,
+                            titleFont: .title2,
+                            authorFont: .title3
+                        )
+                        if !book.microReview.isEmpty {
+                            Text(book.microReview)
+                                .font(.body)
+                                .foregroundColor(.secondary)
+                        }
+                    }.lineLimit(1)
+                }.padding(.vertical)
             }
         }
     }
 }
 
-
-struct BookView: View {
-    var body: some View {
-        HStack {
-            Book.Image(title: Book().title)
-            Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/).font(.title2)
-        }
-    }
-}
-
-struct BookView_Previews: PreviewProvider {
+struct BookRow_Previews: PreviewProvider {
     static var previews: some View {
-        Book.Row(book: Book())
+        Book.Row(book: Book(microReview: "a small review"))
             .padding()
             .previewLayout(.sizeThatFits)
     }

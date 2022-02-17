@@ -30,21 +30,48 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 /// THE SOFTWARE.
 
-struct Library {
-  var sortedBooks: [Book] { booksCache }
+import SwiftUI
 
-  /// An in-memory cache of the manually-sorted books.
-  private var booksCache: [Book] = [
-    .init(title: "Ein Neues Land", author: "Shaun Tan"),
-    .init(title: "Bosch", author: "Laurinda Dixon"),
-    .init(title: "Dare to Lead", author: "Brené Brown"),
-    .init(title: "Blasting for Optimum Health Recipe Book", author: "NutriBullet"),
-    .init(title: "Drinking with the Saints", author: "Michael P. Foley"),
-    .init(title: "A Guide to Tea", author: "Adagio Teas"),
-    .init(title: "The Life and Complete Work of Francisco Goya", author: "P. Gassier & J Wilson"),
-    .init(title: "Lady Cottington's Pressed Fairy Book", author: "Lady Cottington"),
-    .init(title: "How to Draw Cats", author: "Janet Rancan"),
-    .init(title: "Drawing People", author: "Barbara Bradley"),
-    .init(title: "What to Say When You Talk to Yourself", author: "Shad Helmstetter")
-  ]
+class Library: ObservableObject {
+    var sortedBooks: [LibrarySection: [Book]] {
+        let groupedBooks = Dictionary(grouping: booksCache, by: \.readMe)
+        return Dictionary(uniqueKeysWithValues: groupedBooks.map {
+            (($0.key ? .readMe : .finish), $0.value)
+        })
+    }
+    
+    @Published var images: [Book: Image] = [:]
+    
+    /// An in-memory cache of the manually-sorted books.
+    @Published private var booksCache: [Book] = [
+        .init(title: "Ein Neues Land", author: "Shaun Tan", microReview: "lorem ipsum sid amed"),
+        .init(title: "Dare to Lead", author: "Brené Brown", microReview: "lorem ipsum sid amed"),
+        .init(title: "Blasting for Optimum Health Recipe Book", author: "NutriBullet", microReview: "lorem ipsum sid amed"),
+        .init(title: "A Guide to Tea", author: "Adagio Teas"),
+        .init(title: "The Life and Complete Work of Francisco Goya", author: "P. Gassier & J Wilson"),
+        .init(title: "Bosch", author: "Laurinda Dixon", microReview: "lorem ipsum sid amed"),
+        .init(title: "Lady Cottington's Pressed Fairy Book", author: "Lady Cottington"),
+        .init(title: "Drinking with the Saints", author: "Michael P. Foley", microReview: "lorem ipsum sid amed"),
+        .init(title: "How to Draw Cats", author: "Janet Rancan", readMe: false),
+        .init(title: "Drawing People", author: "Barbara Bradley", readMe: false),
+        .init(title: "What to Say When You Talk to Yourself", author: "Shad Helmstetter", readMe: false)
+    ]
+    
+    func addNewBook(_ book: Book, image: Image? = nil) {
+        booksCache.insert(book, at: 0)
+        images[book] = image
+    }
+}
+
+
+enum LibrarySection: CaseIterable, CustomStringConvertible {
+    case readMe
+    case finish
+    
+    var description: String {
+        switch self {
+        case .readMe: return "Read Me"
+        case .finish: return "Finished Reading"
+        }
+    }
 }

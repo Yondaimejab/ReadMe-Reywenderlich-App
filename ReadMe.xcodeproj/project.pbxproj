@@ -16,6 +16,10 @@
 		5D21BEC52787C7D900415EEB /* BookImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D21BEC42787C7D900415EEB /* BookImage.swift */; };
 		5D21BEC72787CD9800415EEB /* Library.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D21BEC62787CD9800415EEB /* Library.swift */; };
 		5D21BECB2787CF2100415EEB /* BookDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D21BECA2787CF2100415EEB /* BookDetailsView.swift */; };
+		5D60DCE42789D27C00AC2EA1 /* PHPickerViewController.View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D60DCE32789D27C00AC2EA1 /* PHPickerViewController.View.swift */; };
+		5D60DCE62789E88700AC2EA1 /* EditableBookSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D60DCE52789E88700AC2EA1 /* EditableBookSectionView.swift */; };
+		5D60DCE82789EC4E00AC2EA1 /* CreateBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D60DCE72789EC4E00AC2EA1 /* CreateBookView.swift */; };
+		5DEA0FE727BEA06800456AFB /* SectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DEA0FE627BEA06800456AFB /* SectionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +33,10 @@
 		5D21BEC42787C7D900415EEB /* BookImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookImage.swift; sourceTree = "<group>"; };
 		5D21BEC62787CD9800415EEB /* Library.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Library.swift; sourceTree = "<group>"; };
 		5D21BECA2787CF2100415EEB /* BookDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailsView.swift; sourceTree = "<group>"; };
+		5D60DCE32789D27C00AC2EA1 /* PHPickerViewController.View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PHPickerViewController.View.swift; sourceTree = "<group>"; };
+		5D60DCE52789E88700AC2EA1 /* EditableBookSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditableBookSectionView.swift; sourceTree = "<group>"; };
+		5D60DCE72789EC4E00AC2EA1 /* CreateBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateBookView.swift; sourceTree = "<group>"; };
+		5DEA0FE627BEA06800456AFB /* SectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +71,7 @@
 			children = (
 				5D21BEC02787C6F900415EEB /* Model */,
 				5D21BEBB2787C5D900415EEB /* Views */,
+				5D60DCE32789D27C00AC2EA1 /* PHPickerViewController.View.swift */,
 				5D21BEBF2787C60200415EEB /* Supporting Files */,
 				5D21BEB32787C5AA00415EEB /* Preview Content */,
 			);
@@ -82,6 +91,9 @@
 			children = (
 				5D21BEC92787CF0000415EEB /* BookDetails */,
 				5D21BEC32787C7CB00415EEB /* Book */,
+				5D21BEAF2787C5A900415EEB /* ContentView.swift */,
+				5D60DCE52789E88700AC2EA1 /* EditableBookSectionView.swift */,
+				5DEA0FE627BEA06800456AFB /* SectionView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -91,7 +103,6 @@
 			children = (
 				5D21BEC82787CD9F00415EEB /* Resource */,
 				5D21BEAD2787C5A900415EEB /* ReadMeApp.swift */,
-				5D21BEAF2787C5A900415EEB /* ContentView.swift */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -109,6 +120,7 @@
 			children = (
 				5D21BEBD2787C5FE00415EEB /* BookRow.swift */,
 				5D21BEC42787C7D900415EEB /* BookImage.swift */,
+				5D60DCE72789EC4E00AC2EA1 /* CreateBookView.swift */,
 			);
 			path = Book;
 			sourceTree = "<group>";
@@ -201,11 +213,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				5D21BEC22787C70200415EEB /* Book.swift in Sources */,
+				5D60DCE82789EC4E00AC2EA1 /* CreateBookView.swift in Sources */,
+				5DEA0FE727BEA06800456AFB /* SectionView.swift in Sources */,
 				5D21BECB2787CF2100415EEB /* BookDetailsView.swift in Sources */,
 				5D21BEBE2787C5FE00415EEB /* BookRow.swift in Sources */,
 				5D21BEC52787C7D900415EEB /* BookImage.swift in Sources */,
+				5D60DCE62789E88700AC2EA1 /* EditableBookSectionView.swift in Sources */,
 				5D21BEB02787C5A900415EEB /* ContentView.swift in Sources */,
 				5D21BEAE2787C5A900415EEB /* ReadMeApp.swift in Sources */,
+				5D60DCE42789D27C00AC2EA1 /* PHPickerViewController.View.swift in Sources */,
 				5D21BEC72787CD9800415EEB /* Library.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
